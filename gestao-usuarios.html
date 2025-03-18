@@ -207,11 +207,13 @@
     <div class="container">
         <h2>Gestão de Usuários</h2>
 
+        <!-- Barra de Pesquisa e Botão de Novo Usuário -->
         <div class="top-bar">
             <input type="text" id="searchUser" placeholder="Pesquisar usuário..." onkeyup="searchUser()">
             <button onclick="openModal('addUserModal')">+ Novo Usuário</button>
         </div>
 
+        <!-- Tabela de Usuários -->
         <table>
             <thead>
                 <tr>
@@ -239,22 +241,62 @@
         </table>
     </div>
 
+    <!-- Modal de Cadastro de Usuário -->
     <div id="addUserModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('addUserModal')">&times;</span>
             <h3>Novo Usuário</h3>
             <label>Nome:</label>
             <input type="text" id="userName">
+            <label>CPF:</label>
+            <input type="text" id="userCPF">
+            <label>E-mail:</label>
+            <input type="email" id="userEmail">
+            <label>Cargo:</label>
+            <select id="userRole">
+                <option>Administrador GERCO</option>
+                <option>Administrador Regional</option>
+                <option>Administrador Municipal</option>
+                <option>Administrador Escolar</option>
+                <option>Usuário Operacional</option>
+            </select>
+            <label>Celular:</label>
+            <input type="text" id="userPhone">
             <button onclick="addUser()">Salvar</button>
         </div>
     </div>
 
+    <!-- Modal de Edição de Usuário -->
     <div id="editUserModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('editUserModal')">&times;</span>
             <h3>Editar Usuário</h3>
             <label>Nome:</label>
             <input type="text" id="editName">
+            <label>CPF:</label>
+            <input type="text" id="editCPF">
+            <label>E-mail:</label>
+            <input type="email" id="editEmail">
+            <label>Cargo:</label>
+            <select id="editRole">
+                <option>Administrador GERCO</option>
+                <option>Administrador Regional</option>
+                <option>Administrador Municipal</option>
+                <option>Administrador Escolar</option>
+                <option>Usuário Operacional</option>
+            </select>
+            <label>Celular:</label>
+            <input type="text" id="editPhone">
+            
+            <label>Status:</label>
+            <select id="editStatus">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select>
+
+            <label>Motivo da Alteração:</label>
+            <textarea id="editReason" placeholder="Descreva o motivo da alteração"></textarea>
+
             <button onclick="saveEdit()">Salvar Alterações</button>
         </div>
     </div>
