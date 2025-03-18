@@ -1,1 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle - Somar Alfa</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Paleta de Cores */
+        :root {
+            --rich-black: #01161E;
+            --midnight-green: #124559;
+            --air-force-blue: #598392;
+            --ash-gray: #AEC3B0;
+            --beige: #EFF6E0;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--beige);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: var(--ash-gray);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filters label {
+            font-weight: bold;
+            display: block;
+        }
+
+        .filters select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--air-force-blue);
+            border-radius: 5px;
+        }
+
+        .indicators {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .indicator-box {
+            flex: 1;
+            padding: 15px;
+            background-color: var(--midnight-green);
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .charts {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .charts canvas {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .export-buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .export-buttons button {
+            background-color: var(--air-force-blue);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .export-buttons button:hover {
+            background-color: var(--rich-black);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>Painel de Controle e BI</h2>
+            <div class="user-profile">Usuário: Administrador</div>
+        </div>
+
+        <div class="filters">
+            <label>SRE:</label>
+            <select id="filterSRE"><option>Todos</option></select>
+            <label>Rede:</label>
+            <select id="filterRede"><option>Todos</option></select>
+            <label>Município:</label>
+            <select id="filterMunicipio"><option>Todos</option></select>
+            <label>Escola:</label>
+            <select id="filterEscola"><option>Todos</option></select>
+            <label>Componente:</label>
+            <select id="filterComponente"><option>Todos</option></select>
+        </div>
+
+        <div class="indicators">
+            <div class="indicator-box"><h3>Taxa de Participação</h3><p id="participacao">97,2%</p></div>
+            <div class="indicator-box"><h3>Estudantes Avaliados</h3><p id="avaliados">15.598</p></div>
+            <div class="indicator-box"><h3>Total de Escolas</h3><p id="escolas">357</p></div>
+        </div>
+
+        <div class="charts">
+            <h3>Perfil dos Alunos</h3>
+            <canvas id="perfilLeitorChart"></canvas>
+        </div>
+
+        <div class="charts">
+            <h3>Distribuição de Proficiência</h3>
+            <canvas id="proficienciaChart"></canvas>
+        </div>
+
+        <div class="charts">
+            <h3>IDEB - Município X Regional X Estado</h3>
+            <canvas id="idebChart"></canvas>
+        </div>
+
+        <div class="charts">
+            <h3>Frequência e Matrículas</h3>
+            <canvas id="frequenciaChart"></canvas>
+        </div>
+
+        <div class="charts">
+            <h3>Indicador de Execução - Tarefas</h3>
+            <canvas id="tarefasChart"></canvas>
+        </div>
+
+        <div class="export-buttons">
+            <button onclick="exportar('pdf')">Exportar PDF</button>
+            <button onclick="exportar('excel')">Exportar Excel</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' }
+                }
+            };
+
+            new Chart(document.getElementById('perfilLeitorChart').getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Fluente', 'Iniciante', 'Pré-Leitor'],
+                    datasets: [{ data: [37, 34, 28], backgroundColor: ['#124559', '#598392', '#AEC3B0'] }]
+                },
+                options: chartOptions
+            });
+
+            new Chart(document.getElementById('proficienciaChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['Leitura', 'Escrita', 'Matemática'],
+                    datasets: [{ data: [702, 735, 580], backgroundColor: ['#124559', '#598392', '#AEC3B0'] }]
+                },
+                options: chartOptions
+            });
+
+            new Chart(document.getElementById('idebChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023'],
+                    datasets: [{
+                        label: 'Município',
+                        data: [3.8, 4.1, 3.9, 4.2, 4.7],
+                        borderColor: '#124559',
+                        backgroundColor: 'rgba(18, 69, 89, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: chartOptions
+            });
+
+            new Chart(document.getElementById('frequenciaChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['Matemática', 'Português'],
+                    datasets: [{ data: [85, 90], backgroundColor: ['#598392', '#AEC3B0'] }]
+                },
+                options: chartOptions
+            });
+
+            new Chart(document.getElementById('tarefasChart').getContext('2d'), {
+                type: 'pie',
+                data: {
+                    labels: ['Não Iniciada', 'Concluída', 'Em andamento', 'Atrasada'],
+                    datasets: [{ data: [47, 33, 15, 5], backgroundColor: ['#FFCC00', '#2E8B57', '#A9A9A9', '#FF0000'] }]
+                },
+                options: chartOptions
+            });
+        });
+
+        function exportar(tipo) {
+            alert(`Exportando dados em ${tipo.toUpperCase()}...`);
+        }
+    </script>
+
+</body>
+</html>
