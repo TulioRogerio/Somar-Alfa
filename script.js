@@ -3,28 +3,36 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.text())
         .then(data => {
             document.getElementById("menu-container").innerHTML = data;
-            ativarSubmenus(); // Inicia a funcionalidade dos submenus
+            ativarSubmenus(); // Inicia os submenus
         })
         .catch(error => console.error("Erro ao carregar o menu:", error));
 });
 
-// Função para expandir/recolher os submenus ao clicar
+// Função para abrir/fechar submenus
 function ativarSubmenus() {
-    document.querySelectorAll(".menu > li > a").forEach(menuItem => {
+    document.querySelectorAll(".menu-item").forEach(menuItem => {
         menuItem.addEventListener("click", function(event) {
             event.preventDefault();
-            let submenu = this.nextElementSibling;
+            let parentLi = this.parentElement;
+            let submenu = parentLi.querySelector(".submenu");
 
-            // Fecha todos os submenus antes de abrir um
-            document.querySelectorAll(".submenu").forEach(sub => {
-                if (sub !== submenu) {
-                    sub.style.display = "none";
+            if (submenu) {
+                // Fecha outros submenus antes de abrir este
+                document.querySelectorAll(".submenu").forEach(sub => {
+                    if (sub !== submenu) {
+                        sub.style.maxHeight = null;
+                        sub.parentElement.classList.remove("open");
+                    }
+                });
+
+                // Alterna o submenu clicado
+                if (submenu.style.maxHeight) {
+                    submenu.style.maxHeight = null;
+                    parentLi.classList.remove("open");
+                } else {
+                    submenu.style.maxHeight = submenu.scrollHeight + "px";
+                    parentLi.classList.add("open");
                 }
-            });
-
-            // Alterna o submenu clicado
-            if (submenu && submenu.classList.contains("submenu")) {
-                submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
             }
         });
     });
