@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Somar Alfa 2</h2>
     <ul class="menu">
         <li>
+            <li><a href="${basePath}/index.html">Início</a></li>            
             <a href="#" class="menu-item">Gestão de Usuários <span class="arrow">▼</span></a>
             <ul class="submenu">
                  <li><a href="${basePath}/gestao-usuarios/cadastro.html">Cadastro</a></li>
