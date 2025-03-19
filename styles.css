@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Definições gerais do body */
+/* Corpo e layout */
 body {
     font-family: Arial, sans-serif;
     background-color: #EFF6E0;
@@ -23,14 +23,16 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
+    transition: width 0.3s;
 }
 
 .sidebar h2 {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
-/* Estilizando a lista do menu */
+/* Menu principal */
 .menu {
     list-style: none;
     padding: 0;
@@ -41,72 +43,62 @@ body {
     margin-bottom: 5px;
 }
 
-.menu > li > a {
+.menu-item {
     color: white;
     text-decoration: none;
-    display: block;
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
     border-radius: 5px;
     background: #598392;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
 }
 
-.menu > li > a:hover {
+.menu-item:hover {
     background-color: #AEC3B0;
 }
 
-/* Submenus ocultos por padrão */
-.submenu {
-    display: none;
-    list-style: none;
-    padding-left: 15px;
+/* Estilizando setinhas ▼ */
+.menu-item span {
+    transition: transform 0.3s;
 }
 
+/* Animação ao abrir submenu */
+.submenu {
+    list-style: none;
+    padding-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* Estilo dos links do submenu */
 .submenu a {
     color: white;
     text-decoration: none;
-    padding: 8px;
+    padding: 10px;
     display: block;
     background-color: #376773;
     border-radius: 5px;
     margin-top: 3px;
+    transition: 0.3s;
 }
 
 .submenu a:hover {
     background-color: #AEC3B0;
 }
 
-/* Ajustando o conteúdo para não ficar embaixo do menu */
+/* Ajuste do conteúdo principal */
 .content {
-    margin-left: 270px; /* Espaço para o menu lateral */
+    margin-left: 270px;
     padding: 20px;
     width: 100%;
 }
 
-/* Estilização do container principal */
-.container {
-    background-color: #AEC3B0;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-}
-
-/* Botões de navegação */
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #124559;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-a:hover {
-    background-color: #01161E;
+/* Quando o submenu estiver aberto */
+.menu.open > .menu-item span {
+    transform: rotate(180deg);
 }
