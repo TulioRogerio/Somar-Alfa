@@ -3,10 +3,23 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.text())
         .then(data => {
             document.getElementById("menu-container").innerHTML = data;
-            ativarSubmenus(); // Inicia os submenus
+            ativarMenu(); // Ativa o botão hamburguer
+            ativarSubmenus(); // Ativa os submenus
         })
         .catch(error => console.error("Erro ao carregar o menu:", error));
 });
+
+// Função para abrir/fechar o menu lateral
+function ativarMenu() {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+    const content = document.querySelector(".content");
+
+    menuToggle.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+        content.classList.toggle("open");
+    });
+}
 
 // Função para abrir/fechar submenus
 function ativarSubmenus() {
