@@ -71,13 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
         <li>
             <a href="#" class="menu-item">Indicadores e Relatórios <span class="arrow">▼</span></a>
             <ul class="submenu">
-                <li><a href="indicadores-relatorios/indicadores-estruturantes.html">Indicadores Estruturantes<span class="arrow">▼</span></a>
+                <li><a href="#">Indicadores Estruturantes<span class="arrow">▼</span></a>
                     <ul class="submenu">
                         <li><a href="indicadores-relatorios/aulas-frequencia.html">Aulas Dadas e Frequência</a></li>
                         <li><a href="indicadores-relatorios/proficiencia.html">Proficiência</a></li>
                     </ul>
                 </li>
-                <li><a href="indicadores-relatorios/indicadores-execucao.html">Indicadores de Execução<span class="arrow">▼</span></a></li>
+                <li><a href="#">Indicadores de Execução<span class="arrow">▼</span></a></li>
                     <ul class="submenu">
                         <li><a href="indicadores-relatorios/atas.html">Atas</a></li>
                         <li><a href="indicadores-relatorios/tarefas.html">Tarefas</a></li>
