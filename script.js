@@ -14,6 +14,15 @@ function ativarSubmenus() {
         menuItem.addEventListener("click", function(event) {
             event.preventDefault();
             let submenu = this.nextElementSibling;
+
+            // Fecha todos os submenus antes de abrir um
+            document.querySelectorAll(".submenu").forEach(sub => {
+                if (sub !== submenu) {
+                    sub.style.display = "none";
+                }
+            });
+
+            // Alterna o submenu clicado
             if (submenu && submenu.classList.contains("submenu")) {
                 submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
             }
