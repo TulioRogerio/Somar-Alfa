@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtém o caminho atual da página
     let basePath = window.location.pathname.includes("/gestao-usuario/") ? "../" : "./";
 
-document.addEventListener("DOMContentLoaded", function () {
     // Inserindo o menu diretamente via JavaScript
     document.getElementById("menu-container").innerHTML = `
 <div class="sidebar">
