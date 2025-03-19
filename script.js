@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("menu.html") // Busca o conteúdo do menu
-        .then(response => response.text()) // Converte para texto
+    fetch("menu.html") // Carrega o menu
+        .then(response => response.text())
         .then(data => {
-            document.getElementById("menu-container").innerHTML = data; // Insere na página
-            ativarSubmenus(); // Chama a função para interatividade do menu
+            document.getElementById("menu-container").innerHTML = data;
+            ativarSubmenus(); // Inicia a funcionalidade dos submenus
         })
         .catch(error => console.error("Erro ao carregar o menu:", error));
 });
 
-// Função para expandir/recolher submenus
+// Função para expandir/recolher os submenus ao clicar
 function ativarSubmenus() {
     document.querySelectorAll(".menu > li > a").forEach(menuItem => {
         menuItem.addEventListener("click", function(event) {
