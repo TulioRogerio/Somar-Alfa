@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Obtém o caminho atual da página
-    let basePath = window.location.pathname.includes("/gestao-usuario/") ? "../" : "./";
+    // Obtém a URL base do site
+    let basePath = window.location.origin + "/";
 
     // Inserindo o menu diretamente via JavaScript
     document.getElementById("menu-container").innerHTML = `
