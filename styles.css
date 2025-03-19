@@ -5,7 +5,7 @@ body {
     display: flex;
 }
 
-/* Menu Lateral */
+/* Estilizando o menu lateral */
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -25,10 +25,11 @@ body {
 .menu {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .menu > li {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .menu > li > a {
@@ -39,61 +40,38 @@ body {
     border-radius: 5px;
     background: #598392;
     cursor: pointer;
+    font-weight: bold;
+    text-align: left;
 }
 
 .menu > li > a:hover {
     background-color: #AEC3B0;
 }
 
+/* Submenus (itens dentro das categorias) */
 .submenu {
-    display: none;
+    display: none; /* Submenus ocultos por padrão */
     list-style: none;
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
 .submenu a {
     color: white;
     text-decoration: none;
-    padding: 5px 0;
+    padding: 8px;
     display: block;
+    background-color: #376773;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 .submenu a:hover {
     background-color: #AEC3B0;
-    border-radius: 5px;
 }
 
-/* Ajustando o conteúdo principal */
-.container {
-    background-color: #AEC3B0;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin: 50px auto;
-    width: 80%;
-    text-align: center;
-}
-
-h1 {
-    color: #01161E;
-}
-
-p {
-    color: #124559;
-    font-size: 18px;
-}
-
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #124559;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-a:hover {
-    background-color: #01161E;
+/* Ajustando o conteúdo principal para não ficar embaixo do menu */
+.content {
+    margin-left: 270px; /* Espaço para o menu lateral */
+    padding: 20px;
+    width: 100%;
 }
