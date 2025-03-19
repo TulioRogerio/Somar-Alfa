@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Inserindo o menu diretamente via JavaScript
     document.getElementById("menu-container").innerHTML = `
 <div class="sidebar">
-    <h2>Menu</h2>
+    <h2>Somar Alfa 2</h2>
     <ul class="menu">
         <li>
             <a href="#" class="menu-item">Gestão de Usuários <span class="arrow">▼</span></a>
