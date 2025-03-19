@@ -12,6 +12,25 @@ body {
     display: flex;
 }
 
+/* Botão de menu hamburguer */
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #124559;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1001;
+    transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    background-color: #598392;
+}
+
 /* Estilizando o menu lateral */
 .sidebar {
     width: 250px;
@@ -21,9 +40,10 @@ body {
     padding: 20px;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -260px; /* Escondido por padrão */
+    transition: left 0.3s ease-in-out;
     overflow-y: auto;
-    transition: width 0.3s;
+    z-index: 1000;
 }
 
 .sidebar h2 {
@@ -61,12 +81,12 @@ body {
     background-color: #AEC3B0;
 }
 
-/* Estilizando setinhas ▼ */
-.menu-item span {
+/* Animação de setinhas ▼ */
+.arrow {
     transition: transform 0.3s;
 }
 
-/* Animação ao abrir submenu */
+/* Submenu oculto */
 .submenu {
     list-style: none;
     padding-left: 15px;
@@ -93,12 +113,22 @@ body {
 
 /* Ajuste do conteúdo principal */
 .content {
-    margin-left: 270px;
+    margin-left: 0;
     padding: 20px;
     width: 100%;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Quando o menu estiver aberto */
+.sidebar.open {
+    left: 0;
+}
+
+.content.open {
+    margin-left: 250px;
 }
 
 /* Quando o submenu estiver aberto */
-.menu.open > .menu-item span {
+.menu.open > .menu-item .arrow {
     transform: rotate(180deg);
 }
