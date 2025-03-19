@@ -220,7 +220,7 @@
                     <th>Nome Social (opcional)</th>
                     <th>CPF</th>
                     <th>E-mail</th>
-                    <th>Cargo</th>
+                    <th>Função</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
@@ -249,11 +249,15 @@
             <h3>Novo Usuário</h3>
             <label>Nome:</label>
             <input type="text" id="userName">
+            <label>Nome Social:</label>
+            <input type="text" id="userNameSocial">
             <label>CPF:</label>
             <input type="text" id="userCPF">
             <label>E-mail:</label>
             <input type="email" id="userEmail">
-            <label>Cargo:</label>
+            <label>Celular:</label>
+            <input type="text" id="userPhone">            
+            <label>Função:</label>
             <select id="userRole">
                 <option>Administrador GERCO</option>
                 <option>Administrador Regional</option>
@@ -261,8 +265,7 @@
                 <option>Administrador Escolar</option>
                 <option>Usuário Operacional</option>
             </select>
-            <label>Celular:</label>
-            <input type="text" id="userPhone">
+            
             <button onclick="addUser()">Salvar</button>
         </div>
     </div>
@@ -274,11 +277,15 @@
             <h3>Editar Usuário</h3>
             <label>Nome:</label>
             <input type="text" id="editName">
+            <label>Nome Social:</label>
+            <input type="text" id="editNameSocial">
             <label>CPF:</label>
             <input type="text" id="editCPF">
             <label>E-mail:</label>
             <input type="email" id="editEmail">
-            <label>Cargo:</label>
+            <label>Celular:</label>
+            <input type="text" id="editPhone">          
+            <label>Função:</label>
             <select id="editRole">
                 <option>Administrador GERCO</option>
                 <option>Administrador Regional</option>
@@ -286,8 +293,7 @@
                 <option>Administrador Escolar</option>
                 <option>Usuário Operacional</option>
             </select>
-            <label>Celular:</label>
-            <input type="text" id="editPhone">
+
             
             <label>Status:</label>
             <select id="editStatus">
