@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Inserindo o menu diretamente via JavaScript
     document.getElementById("menu-container").innerHTML = `
@@ -106,17 +103,32 @@ function ativarEventosMenu() {
     let menuItems = document.querySelectorAll(".menu-item");
 
     menuItems.forEach(item => {
-        item.addEventListener("click", function () {
-            let submenu = this.nextElementSibling;
+        item.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita comportamento padrão do link
 
-            if (submenu.style.maxHeight) {
-                submenu.style.maxHeight = null;
-                this.classList.remove("active");
-            } else {
-                submenu.style.maxHeight = submenu.scrollHeight + "px";
-                this.classList.add("active");
+            let submenu = this.nextElementSibling;
+            
+            if (submenu && submenu.classList.contains("submenu")) {
+                // Fecha outros submenus no mesmo nível
+                let parent = this.closest("ul");
+                let submenusAbertos = parent.querySelectorAll(".submenu");
+                
+                submenusAbertos.forEach(sub => {
+                    if (sub !== submenu) {
+                        sub.style.maxHeight = null;
+                        sub.previousElementSibling.classList.remove("active");
+                    }
+                });
+
+                // Alterna o submenu atual
+                if (submenu.style.maxHeight) {
+                    submenu.style.maxHeight = null;
+                    this.classList.remove("active");
+                } else {
+                    submenu.style.maxHeight = submenu.scrollHeight + "px";
+                    this.classList.add("active");
+                }
             }
         });
     });
 }
-
