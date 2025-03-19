@@ -1,122 +1,62 @@
-/* Reset de estilos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Corpo e layout */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #EFF6E0;
-    display: flex;
-}
-
-/* Ícone do menu hamburguer */
-#menu-toggle {
-    font-size: 24px;
-    cursor: pointer;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    background-color: #124559;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    z-index: 1001;
-    transition: 0.3s;
-}
-
-#menu-toggle:hover {
-    background-color: #598392;
-}
-
-/* Estilizando o menu lateral */
+/* Estilização do Menu Lateral */
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #124559;
-    color: white;
-    padding: 20px;
-    position: fixed;
+    width: 250px; /* Largura fixa do menu */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    background-color: #124559; /* Cor do tema */
+    position: fixed; /* Mantém fixo na tela */
     top: 0;
-    left: -260px; /* Escondido por padrão */
-    transition: left 0.3s ease-in-out;
-    overflow-y: auto;
-    z-index: 1000;
+    left: 0;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Habilita rolagem se houver muitos itens */
 }
 
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 20px;
+/* Ajusta a estrutura do conteúdo principal para não sobrepor o menu */
+.content {
+    margin-left: 250px; /* Empurra o conteúdo para a direita respeitando o menu */
+    padding: 20px;
+    background-color: #EFF6E0; /* Cor do tema */
+    min-height: 100vh; /* Garante que ocupa toda a tela */
 }
 
-/* Menu principal */
-.menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu > li {
-    margin-bottom: 5px;
-}
-
+/* Itens do menu */
 .menu-item {
+    background-color: #1E5F74; /* Cor do tema */
     color: white;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    display: block;
+    width: 100%;
     text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    border-radius: 5px;
-    background: #598392;
+    font-size: 16px;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    border-bottom: 1px solid #598392; /* Separação entre itens */
 }
 
+/* Hover nos itens do menu */
 .menu-item:hover {
-    background-color: #AEC3B0;
+    background-color: #598392; /* Cor do tema */
 }
 
-/* Submenu oculto */
+/* Submenus */
 .submenu {
-    list-style: none;
-    padding-left: 15px;
-    display: none;
+    display: block; /* Sempre visível */
+    background-color: #2E6F88; /* Cor do tema */
+    padding-left: 10px;
 }
 
-/* Estilo dos links do submenu */
-.submenu a {
-    color: white;
-    text-decoration: none;
+/* Itens dentro do submenu */
+.submenu-item {
     padding: 10px;
     display: block;
-    background-color: #376773;
-    border-radius: 5px;
-    margin-top: 3px;
-    transition: 0.3s;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #598392;
 }
 
-.submenu a:hover {
-    background-color: #AEC3B0;
-}
-
-/* Ajuste do conteúdo principal */
-.content {
-    margin-left: 0;
-    padding: 20px;
-    width: 100%;
-    transition: margin-left 0.3s ease-in-out;
-}
-
-/* Quando o menu estiver aberto */
-.sidebar.open {
-    left: 0;
-}
-
-.content.open {
-    margin-left: 250px;
+/* Hover nos submenus */
+.submenu-item:hover {
+    background-color: #3B7D99;
 }
