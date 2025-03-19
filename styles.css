@@ -12,8 +12,8 @@ body {
     display: flex;
 }
 
-/* Botão de menu hamburguer */
-.menu-toggle {
+/* Ícone do menu hamburguer */
+#menu-toggle {
     font-size: 24px;
     cursor: pointer;
     position: fixed;
@@ -27,7 +27,7 @@ body {
     transition: 0.3s;
 }
 
-.menu-toggle:hover {
+#menu-toggle:hover {
     background-color: #598392;
 }
 
@@ -81,18 +81,11 @@ body {
     background-color: #AEC3B0;
 }
 
-/* Animação de setinhas ▼ */
-.arrow {
-    transition: transform 0.3s;
-}
-
 /* Submenu oculto */
 .submenu {
     list-style: none;
     padding-left: 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    display: none;
 }
 
 /* Estilo dos links do submenu */
@@ -126,9 +119,4 @@ body {
 
 .content.open {
     margin-left: 250px;
-}
-
-/* Quando o submenu estiver aberto */
-.menu.open > .menu-item .arrow {
-    transform: rotate(180deg);
 }
