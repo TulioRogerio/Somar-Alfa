@@ -1,49 +1,56 @@
-/* Estilização do Menu Lateral */
+/* MENU LATERAL FIXO */
 .sidebar {
-    width: 250px; /* Largura fixa do menu */
+    width: 250px; /* Largura fixa */
     height: 100vh; /* Ocupa toda a altura da tela */
     background-color: #124559; /* Cor do tema */
-    position: fixed; /* Mantém fixo na tela */
+    position: fixed; /* Fixa na tela */
     top: 0;
     left: 0;
     padding-top: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    overflow-y: auto; /* Habilita rolagem se houver muitos itens */
+    overflow-y: auto; /* Permite rolagem se necessário */
 }
 
-/* Ajusta a estrutura do conteúdo principal para não sobrepor o menu */
+/* Ajusta o conteúdo para não sobrepor o menu */
 .content {
-    margin-left: 250px; /* Empurra o conteúdo para a direita respeitando o menu */
+    margin-left: 250px; /* Compensa a largura do menu */
     padding: 20px;
     background-color: #EFF6E0; /* Cor do tema */
-    min-height: 100vh; /* Garante que ocupa toda a tela */
+    min-height: 100vh;
 }
 
-/* Itens do menu */
+/* Estilizando os itens do menu */
 .menu-item {
     background-color: #1E5F74; /* Cor do tema */
     color: white;
     padding: 15px;
     text-align: left;
     border: none;
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    text-decoration: none;
     font-size: 16px;
     cursor: pointer;
-    border-bottom: 1px solid #598392; /* Separação entre itens */
+    border-bottom: 1px solid #598392; /* Linha separadora */
 }
 
-/* Hover nos itens do menu */
-.menu-item:hover {
-    background-color: #598392; /* Cor do tema */
+/* Ícone do submenu */
+.menu-item i {
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Submenus */
+/* Rotaciona o ícone quando o submenu está aberto */
+.menu-item.active i {
+    transform: rotate(90deg);
+}
+
+/* SUBMENU - Inicialmente escondido */
 .submenu {
-    display: block; /* Sempre visível */
-    background-color: #2E6F88; /* Cor do tema */
-    padding-left: 10px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #2E6F88; /* Cor do submenu */
+    transition: max-height 0.3s ease-in-out;
 }
 
 /* Itens dentro do submenu */
@@ -56,7 +63,7 @@
     border-bottom: 1px solid #598392;
 }
 
-/* Hover nos submenus */
+/* Efeito hover no submenu */
 .submenu-item:hover {
     background-color: #3B7D99;
 }
