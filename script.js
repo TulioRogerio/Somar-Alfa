@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="sidebar">
     <h2>Somar Alfa 2</h2>
     <ul class="menu">
-        <li>
-            <li><a href="${basePath}/index.html">Início</a></li>            
+<li>
+     <li href="${basePath}/index.html" class="menu-item">Início</li>                        
             <a href="#" class="menu-item">Gestão de Usuários <span class="arrow">▼</span></a>
             <ul class="submenu">
                  <li><a href="${basePath}/gestao-usuarios/cadastro.html">Cadastro</a></li>
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  <li><a href="${basePath}/plano-acao/problemas-desafios.html">Problemas e Desafios</a></li>
                  <li><a href="${basePath}/plano-acao/mapa-acao.html">Mapa de Ação</a></li>
                  <li><a href="${basePath}/plano-acao/teste-consistencia.html">Teste de Consistência</a></li>
+                 <li><a href="${basePath}/plano-acao/produtos.html">Produtos</a></li>
                  <li><a href="${basePath}/plano-acao/dashboard-progresso.html">Dashboard de Progresso</a></li>
             </ul>
         </li>
@@ -33,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <li>
             <a href="#" class="menu-item">Visitas Técnicas <span class="arrow">▼</span></a>
             <ul class="submenu">
-                 <li><a href="${basePath}/visitas-tecnicas/calendario.html">Calendário</a></li>
-                 <li><a href="${basePath}/visitas-tecnicas/agendamento.html">Agendamento</a></li>
-                 <li><a href="${basePath}/visitas-tecnicas/linha-tempo.html">Linha do Tempo</a></li>
+                 <li><a href="${basePath}/visitas-tecnicas/agendamento.html">Agendamento de V.T.</a></li>
+                 <li><a href="${basePath}/visitas-tecnicas/atas.html">Upload de Atas</a></li>
+                 <li><a href="${basePath}/visitas-tecnicas/exportar-atas.html">Visualização de Atas</a></li>
                  <li><a href="${basePath}/visitas-tecnicas/modelos-atas.html">Modelos de Atas</a></li>
             </ul>
         </li>
@@ -58,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                  <li><a href="${basePath}/painel-controle/indicadores-execucao.html">Indicadores de Execução</a></li>
                  <li><a href="${basePath}/painel-controle/resultados-avaliacoes.html">Resultados: Avaliações Externas</a></li>
                  <li><a href="${basePath}/painel-controle/exportar-dados.html">Exportar dados</a></li>
+                 <li><a href="${basePath}/painel-controle/afa.html">AFA</a></li>
+                 <li><a href="${basePath}/painel-controle/v_fluencia-leitora.html">Verificação de Fluência Leitora</a></li>
             </ul>
         </li>
 
