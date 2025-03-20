@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <li>
             <a href="#" class="menu-item">SAAR<span class="arrow">▼</span></a>
             <ul class="submenu">
+                 <li><a href="${basePath}saar/config.html">Configurações dos Ciclos</a></li>
                  <li><a href="${basePath}saar/Ciclo1.html">Ciclo 1</a></li>
                  <li><a href="${basePath}saar/Ciclo2.html">Ciclo 2</a></li>
                  <li><a href="${basePath}saar/Balanco_final.html">Balanço Final</a></li>                 
