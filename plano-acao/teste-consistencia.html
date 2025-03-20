@@ -1,1 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste de Consistência - Somar Alfa</title>
 
+  <!-- Mesmo estilo inline das outras páginas (Ativação e Inativação, etc.) -->
+  <style>
+    :root {
+      --rich-black: #01161E;
+      --midnight-green: #124559;
+      --air-force-blue: #598392;
+      --ash-gray: #AEC3B0;
+      --beige: #EFF6E0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--beige);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background-color: var(--ash-gray);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      height: auto;
+    }
+
+    h2 {
+      color: var(--rich-black);
+      margin-bottom: 15px;
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap; /* Se os botões excederem a linha, eles quebram */
+      gap: 10px;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+    }
+
+    /* Botões com ícones */
+    button {
+      background-color: var(--midnight-green);
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px; /* Espaço entre ícone e texto */
+    }
+    button:hover {
+      background-color: var(--rich-black);
+    }
+    .icon {
+      font-size: 16px; /* Ajuste conforme desejar */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid var(--air-force-blue);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--midnight-green);
+      color: white;
+    }
+
+    /* Grupo do radio button centralizado na célula */
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  </style>
+
+  <!-- Seu styles.css se quiser unificar -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Menu lateral via script.js -->
+  <div id="menu-container"></div>
+
+  <div class="container">
+    <h2>Teste de Consistência</h2>
+
+    <!-- Botões solicitados -->
+    <div class="top-bar">
+      <!-- Perguntas -->
+      <button><span class="icon">➕</span> Inserir Pergunta</button>
+      <button><span class="icon">✏️</span> Editar Pergunta</button>
+      <button><span class="icon">🗑️</span> Excluir Pergunta</button>
+
+      <!-- Itens de verificação -->
+      <button><span class="icon">➕</span> Inserir item</button>
+      <button><span class="icon">✏️</span> Editar item</button>
+      <button><span class="icon">🗑️</span> Excluir item</button>
+
+      <!-- Colunas -->
+      <button><span class="icon">➕</span> Incluir Coluna</button>
+      <button><span class="icon">✏️</span> Editar Coluna</button>
+      <button><span class="icon">🗑️</span> Excluir Coluna</button>
+    </div>
+
+    <!-- Tabela principal -->
+    <table>
+      <thead>
+        <tr>
+          <th>Pergunta</th>
+          <th>O que verificar</th>
+          <th>Adequado</th>
+          <th>Parcialmente Adequado</th>
+          <th>Inadequado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1ª linha -->
+        <tr>
+          <td>O que?</td>
+          <td>
+            As ações apresentadas no Plano de ação estão articuladas com os problemas levantados a partir do diagnóstico da escola?<br>
+            A escrita está clara e os resultados estão coerentes?<br>
+            O resultado da ação incide de fato no problema a ser resolvido?
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row1" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row1" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row1" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 2ª linha -->
+        <tr>
+          <td>Quem?</td>
+          <td>
+            Estão definidos os responsáveis pelas ações?<br>
+            Estão comunicados e de acordo?<br>
+            Sentem-se confortáveis para tal função?<br>
+            Existe alguém sobrecarregado com as tarefas do plano?
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row2" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row2" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row2" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 3ª linha -->
+        <tr>
+          <td>Quando?</td>
+          <td>
+            O tempo previsto para a ação é adequado aos resultados que se quer atingir? É coerente com a capacidade de execução da escola?<br>
+            As tarefas apresentam encadeamento lógico e estão organizadas de modo sequencial?<br>
+            O cronograma prevê início e fim para cada tarefa?
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row3" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row3" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row3" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 4ª linha -->
+        <tr>
+          <td>Por quê?</td>
+          <td>
+            Existem ações suficientes capazes de alterar o IDEB?<br>
+            As ações são coerentes com as causas?
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row4" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row4" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row4" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 5ª linha -->
+        <tr>
+          <td>Para quê?</td>
+          <td>
+            Os resultados esperados estão coerentes com as causas?<br>
+            Há ações coerentes entre si?
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row5" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row5" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row5" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 6ª linha -->
+        <tr>
+          <td>Para quem?</td>
+          <td>
+            As ações propostas previram a participação e engajamento dos estudantes e da comunidade escolar?<br>
+            As ações estão voltadas para a melhoria dos resultados de aprendizagem dos estudantes?<br>
+            Os produtos refletem as entregas das ações com as causas?<br>
+            Há tarefas que demandam recursos financeiros? A escola tem disponibilidade de executá-las com os recursos disponíveis e/ou previstos?
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row6" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row6" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row6" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 7ª linha -->
+        <tr>
+          <td>Como?</td>
+          <td>
+            Em relação às ações do Plano: precisam de modificações? Identifique quais as adequações necessárias.
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row7" value="Adequado">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row7" value="Parcialmente">
+            </div>
+          </td>
+          <td>
+            <div class="radio-group">
+              <input type="radio" name="row7" value="Inadequado">
+            </div>
+          </td>
+        </tr>
+
+        <!-- 8ª linha (Porcentagem) -->
+        <tr>
+          <td><strong>Porcentagem</strong></td>
+          <td></td>
+          <!-- Exemplo dos valores da imagem: 84%, 11%, 0% -->
+          <td><strong>84%</strong></td>
+          <td><strong>11%</strong></td>
+          <td><strong>0%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>
