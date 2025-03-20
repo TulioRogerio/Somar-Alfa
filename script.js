@@ -72,38 +72,22 @@ document.addEventListener("DOMContentLoaded", function () {
         </li>
 
         <li>
-            <a href="#" class="menu-item">Diagnóstico e Gestão de Dados <span class="arrow">▼</span></a>
+            <a href="#" class="menu-item">SAAR<span class="arrow">▼</span></a>
             <ul class="submenu">
-                 <li><a href="${basePath}diagnostico-gestao-dados/matriculas-abandono-aprovacao.html">Matrículas, abandono, aprovação</a></li>
-                 <li><a href="${basePath}diagnostico-gestao-dados/avaliacoes-externas.html">Avaliações Externas</a></li>
-                 <li><a href="${basePath}diagnostico-gestao-dados/distorcao-idade-serie.html">Distorção Idade-Série</a></li>
-                 <li><a href="${basePath}diagnostico-gestao-dados/questoes-etnico-raciais.html">Questões Étnico-Raciais</a></li>
-                 <li><a href="${basePath}diagnostico-gestao-dados/importar-exportar-dados.html">Importar/Exportar dados</a></li>
+                 <li><a href="${basePath}saar/Ciclo1.html">Ciclo 1</a></li>
+                 <li><a href="${basePath}saar/Ciclo2.html">Ciclo 2</a></li>
+                 <li><a href="${basePath}saar/Balanco_final.html">Balanço Final</a></li>                 
             </ul>
         </li>
 
         <li>
-            <a href="#" class="menu-item">Indicadores e Relatórios <span class="arrow">▼</span></a>
+            <a href="#" class="menu-item">Acompanhamento de Processos<span class="arrow">▼</span></a>
             <ul class="submenu">
-                <li><a href="#">Indicadores Estruturantes<span class="arrow">▼</span></a>
-                    <ul class="submenu">
-                         <li><a href="${basePath}indicadores-relatorios/aulas-frequencia.html">Aulas Dadas e Frequência</a></li>
-                         <li><a href="${basePath}indicadores-relatorios/proficiencia.html">Proficiência</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Indicadores de Execução<span class="arrow">▼</span></a></li>
-                    <ul class="submenu">
-                         <li><a href="${basePath}indicadores-relatorios/atas.html">Atas</a></li>
-                         <li><a href="${basePath}indicadores-relatorios/tarefas.html">Tarefas</a></li>
-                         <li><a href="${basePath}indicadores-relatorios/produtos.html">Produtos</a></li>                      
-                         <li><a href="${basePath}indicadores-relatorios/planos-acao.html">Planos de Ação</a></li>
-                         <li><a href="${basePath}indicadores-relatorios/mapas-acao.html">Mapas de Ação</a></li>
-                         <li><a href="${basePath}indicadores-relatorios/teste-consistencia.html">Teste de Consistência</a></li>                      
-                    </ul>
-              
-                 <li><a href="${basePath}indicadores-relatorios/exportar-relatorios.html">Exportar Relatórios</a></li>
+                 <li><a href="${basePath}acompanhamento-de-processos/Regional.html">Acompanhamento Regional</a></li>
+                 <li><a href="${basePath}acompanhamento-de-processos/Municipal.html">Acompanhamento Municipal</a></li>
             </ul>
         </li>
+
     </ul>
 </div>
     `;
