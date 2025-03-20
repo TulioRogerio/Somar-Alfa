@@ -9,7 +9,7 @@
         <ul class="menu">
 
           <li>
-            <a href="\${basePath}index.html" class="menu-item">Início</a>
+            <a href="\${basePath}/index.html" class="menu-item">Início</a>
           </li>
 
           <li>
