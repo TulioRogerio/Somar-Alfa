@@ -1,101 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Problemas e Desafios</title>
-  <!-- Link para o arquivo CSS, subindo duas pastas (exemplo) até a pasta css/ -->
-  <link rel="stylesheet" href="../styles.css">  
+  <meta charset="UTF-8">
+  <title>Problemas e Desafios - Somar Alfa</title>
+  
+  <!-- Replicando o mesmo estilo inline da página "Ativação e Inativação" -->
+  <style>
+    /* Paleta de Cores */
+    :root {
+      --rich-black: #01161E;
+      --midnight-green: #124559;
+      --air-force-blue: #598392;
+      --ash-gray: #AEC3B0;
+      --beige: #EFF6E0;
+    }
+
+    /* Reset geral */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--beige);
+      display: flex;
+      justify-content: center; /* Centraliza horizontalmente */
+      align-items: flex-start; /* Alinha o topo corretamente */
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background-color: var(--ash-gray);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      height: auto; 
+    }
+
+    h2 {
+      color: var(--rich-black);
+      margin-bottom: 15px;
+    }
+
+    /* Barra superior para botões ou campo de pesquisa */
+    .top-bar {
+      display: flex;
+      justify-content: flex-start; 
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: var(--midnight-green);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: var(--rich-black);
+    }
+
+    /* Tabela branca */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid var(--air-force-blue);
+      text-align: left;
+    }
+    th {
+      background-color: var(--midnight-green);
+      color: white;
+    }
+  </style>
+
+  <!-- Seu styles.css para manter consistência geral (opcional) -->
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <!-- O script.js injetará o menu aqui -->
+  <!-- Menu lateral injetado por script.js -->
   <div id="menu-container"></div>
 
-  <!-- Conteúdo principal -->
-  <div class="content">
+  <!-- Container principal, mesmo padrão da "Ativação e Inativação" -->
+  <div class="container">
     <h2>Problemas e Desafios</h2>
-    <!-- Botão para inserir novo problema -->
-    <button style="margin-bottom: 15px;">Inserir novo problema</button>
-    
-    <!-- Tabela de Problemas e Desafios -->
-    <div class="table-container">
-      <table style="width: 100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color: #1E5F74; color: #fff;">
-            <th style="padding: 8px;">Problemas Cadastrados</th>
-            <th style="padding: 8px;">Editar Problema</th>
-            <th style="padding: 8px;">Excluir Problema</th>
-            <th style="padding: 8px;">Cadastrar Desafio</th>
-            <th style="padding: 8px;">Editar Desafio</th>
-            <th style="padding: 8px;">Excluir Desafio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 1ª linha de exemplo -->
-          <tr style="background-color: #fff;">
-            <td style="padding: 8px;">
-              <strong>Problema:</strong> Muitos alunos negros fazem matrícula e, com o passar dos meses, abandonam a escola.<br>
-              <strong>Desafio:</strong> Manter 95% dos alunos negros frequentes até o final do ano letivo.
-            </td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>➕</button></td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-          </tr>
-          <!-- 2ª linha de exemplo -->
-          <tr style="background-color: #fff;">
-            <td style="padding: 8px;">
-              <strong>Problema:</strong>Atraso na entrega de material didático aos alunos do 1º ano.<br>
-              <strong>Desafio:</strong> Garantir que todos recebam o material até a 2ª semana de aula.
-            </td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>➕</button></td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-          </tr>
-          <!-- 3ª linha de exemplo -->
-          <tr style="background-color: #fff;">
-            <td style="padding: 8px;">
-              <strong>Problema:</strong>Baixa adesão dos professores às formações continuadas.<br>
-              <strong>Desafio:</strong> Alcançar 80% de participação efetiva nas formações.
-            </td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>➕</button></td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-          </tr>
-          <!-- 4ª linha de exemplo -->
-          <tr style="background-color: #fff;">
-            <td style="padding: 8px;">
-              <strong>Problema:</strong>Dificuldade de acesso de alunos da zona rural por falta de transporte.<br>
-              <strong>Desafio:</strong> Disponibilizar transporte regular para 100% dos alunos da zona rural.
-            </td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>➕</button></td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-          </tr>
-          <!-- 5ª linha de exemplo -->
-          <tr style="background-color: #fff;">
-            <td style="padding: 8px;">
-              <strong>Problema:</strong>Falta de equipamentos de TI nos laboratórios de informática.<br>
-              <strong>Desafio:</strong> Ter pelo menos 10 computadores funcionais em cada laboratório.
-            </td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>➕</button></td>
-            <td style="padding: 8px; text-align: center;"><button>✏️</button></td>
-            <td style="padding: 8px; text-align: center;"><button>🗑️</button></td>
-          </tr>
-        </tbody>
-      </table>
+
+    <!-- Barra superior (substitui a "searchUser" por nosso botão) -->
+    <div class="top-bar">
+      <button>Inserir novo problema</button>
     </div>
+    
+    <!-- Única tabela grande, no mesmo estilo -->
+    <table>
+      <thead>
+        <tr>
+          <th>Problemas Cadastrados</th>
+          <th>Editar Problema</th>
+          <th>Excluir Problema</th>
+          <th>Cadastrar Desafio</th>
+          <th>Editar Desafio</th>
+          <th>Excluir Desafio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 1ª linha de exemplo -->
+        <tr>
+          <td>
+            <strong>Problema:</strong> Muitos alunos negros fazem matrícula e, com o passar dos meses, abandonam a escola.
+            <br>
+            <strong>Desafio:</strong> Manter 95% dos alunos negros frequentes até o final do ano letivo.
+          </td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+          <td style="text-align:center;"><button>➕</button></td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+        </tr>
+
+        <!-- 2ª linha de exemplo -->
+        <tr>
+          <td>
+            <strong>Problema:</strong> Atraso na entrega de material didático aos alunos do 1º ano.
+            <br>
+            <strong>Desafio:</strong> Garantir que todos recebam o material até a 2ª semana de aula.
+          </td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+          <td style="text-align:center;"><button>➕</button></td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+        </tr>
+
+        <!-- 3ª linha de exemplo -->
+        <tr>
+          <td>
+            <strong>Problema:</strong> Baixa adesão dos professores às formações continuadas.
+            <br>
+            <strong>Desafio:</strong> Alcançar 80% de participação efetiva nas formações.
+          </td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+          <td style="text-align:center;"><button>➕</button></td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+        </tr>
+
+        <!-- 4ª linha de exemplo -->
+        <tr>
+          <td>
+            <strong>Problema:</strong> Dificuldade de acesso de alunos da zona rural por falta de transporte.
+            <br>
+            <strong>Desafio:</strong> Disponibilizar transporte regular para 100% dos alunos da zona rural.
+          </td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+          <td style="text-align:center;"><button>➕</button></td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+        </tr>
+
+        <!-- 5ª linha de exemplo -->
+        <tr>
+          <td>
+            <strong>Problema:</strong> Falta de equipamentos de TI nos laboratórios de informática.
+            <br>
+            <strong>Desafio:</strong> Ter pelo menos 10 computadores funcionais em cada laboratório.
+          </td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+          <td style="text-align:center;"><button>➕</button></td>
+          <td style="text-align:center;"><button>✏️</button></td>
+          <td style="text-align:center;"><button>🗑️</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- Carrega o JS que injeta o menu e gerencia submenus -->
+  <!-- Script que injeta o menu lateral -->
   <script src="../script.js"></script>
 </body>
 </html>
