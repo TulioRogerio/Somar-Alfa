@@ -2,248 +2,229 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagnóstico Escolar</title>
-  <!-- Importa o seu CSS principal (styles.css), que já contém .sidebar, .content etc. -->
+  <!-- Continua chamando seu arquivo styles.css (sem alterar) -->
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <!-- O script.js injetará o menu dentro deste container -->
+  <!-- Onde o script.js injeta o menu -->
   <div id="menu-container"></div>
 
-  <!-- Conteúdo principal, respeitando a classe .content do styles.css -->
-  <div class="content">
+  <!-- Único contêiner principal, igual ao que você faz na página de Ativação/Inativação -->
+  <div class="container">
     <h2>Diagnóstico Escolar</h2>
 
-    <!-- 1º Container: Selecionar o Ano -->
-    <div class="data-container">
-      <h3>Selecione o Ano</h3>
-      <label for="anoSelecionado"><strong>Ano:</strong></label>
-      <select id="anoSelecionado" onchange="atualizarAno()">
-        <option value="2019">2019</option>
-        <option value="2021">2021</option>
-        <option value="2023">2023</option>
-        <option value="2024" selected>2024</option>
-        <option value="2025">2025</option>
-      </select>
-    </div>
+    <!-- Selecionar o Ano -->
+    <label for="anoSelecionado"><strong>Ano:</strong></label>
+    <select id="anoSelecionado" onchange="atualizarAno()">
+      <option value="2019">2019</option>
+      <option value="2021">2021</option>
+      <option value="2023">2023</option>
+      <option value="2024" selected>2024</option>
+      <option value="2025">2025</option>
+    </select>
 
-    <!-- 2º Container: Dados INEP -->
-    <div class="data-container">
-      <h3>Dados INEP</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Ano</th>
-            <th>Índice Socioeconômico</th>
-            <th>Índice de Complexidade de Gestão</th>
-            <th>Meta IDEB</th>
-            <th>IDEB</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2019</td>
-            <td><input type="text" value="4.5"></td>
-            <td><input type="text" value="3.2"></td>
-            <td><input type="text" value="5.0"></td>
-            <td><input type="text" value="4.8"></td>
-          </tr>
-          <tr>
-            <td>2021</td>
-            <td><input type="text" value="4.7"></td>
-            <td><input type="text" value="3.4"></td>
-            <td><input type="text" value="5.2"></td>
-            <td><input type="text" value="4.9"></td>
-          </tr>
-          <tr>
-            <td>2023</td>
-            <td><input type="text" value=""></td>
-            <td><input type="text" value="3.5"></td>
-            <td><input type="text" value="5.5"></td>
-            <td><input type="text" value=""></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- Dados INEP -->
+    <h3>Dados INEP</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ano</th>
+          <th>Índice Socioeconômico</th>
+          <th>Índice de Complexidade de Gestão</th>
+          <th>Meta IDEB</th>
+          <th>IDEB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2019</td>
+          <td><input type="text" value="4.5"></td>
+          <td><input type="text" value="3.2"></td>
+          <td><input type="text" value="5.0"></td>
+          <td><input type="text" value="4.8"></td>
+        </tr>
+        <tr>
+          <td>2021</td>
+          <td><input type="text" value="4.7"></td>
+          <td><input type="text" value="3.4"></td>
+          <td><input type="text" value="5.2"></td>
+          <td><input type="text" value="4.9"></td>
+        </tr>
+        <tr>
+          <td>2023</td>
+          <td><input type="text" value=""></td>
+          <td><input type="text" value="3.5"></td>
+          <td><input type="text" value="5.5"></td>
+          <td><input type="text" value=""></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- 3º Container: Dados PAEBES -->
-    <div class="data-container">
-      <h3>Dados PAEBES</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Ano</th>
-            <th>Fluência Leitora – Participação (%)</th>
-            <th>Fluência Leitora – Nota</th>
-            <th>Meta IDEBES 2º ano</th>
-            <th>Meta IDEBES 5º ano</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2023</td>
-            <td><input type="text" value="85"></td>
-            <td><input type="text" value="7.8"></td>
-            <td><input type="text" value=""></td>
-            <td><input type="text" value=""></td>
-          </tr>
-          <tr>
-            <td>2024</td>
-            <td><input type="text" value="90"></td>
-            <td><input type="text" value=""></td>
-            <td><input type="text" value="6.0"></td>
-            <td><input type="text" value="6.5"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- Dados PAEBES -->
+    <h3>Dados PAEBES</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Ano</th>
+          <th>Fluência Leitora – Participação (%)</th>
+          <th>Fluência Leitora – Nota</th>
+          <th>Meta IDEBES 2º ano</th>
+          <th>Meta IDEBES 5º ano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2023</td>
+          <td><input type="text" value="85"></td>
+          <td><input type="text" value="7.8"></td>
+          <td><input type="text" value=""></td>
+          <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td><input type="text" value="90"></td>
+          <td><input type="text" value=""></td>
+          <td><input type="text" value="6.0"></td>
+          <td><input type="text" value="6.5"></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- 4º Container: Dados da Escola - 2024 -->
-    <div class="data-container">
-      <h3>Dados da Escola - 2024</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Fluxo de Aprovação (%)</th>
-            <th>Fluxo de Desistência (%)</th>
-            <th>Fluxo de Abandono (%)</th>
-            <th>Distorção Idade-Série (%)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" value="92"></td>
-            <td><input type="text" value="3"></td>
-            <td><input type="text" value="5"></td>
-            <td><input type="text" value=""></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- Dados da Escola - 2024 -->
+    <h3>Dados da Escola - 2024</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Fluxo de Aprovação (%)</th>
+          <th>Fluxo de Desistência (%)</th>
+          <th>Fluxo de Abandono (%)</th>
+          <th>Distorção Idade-Série (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" value="92"></td>
+          <td><input type="text" value="3"></td>
+          <td><input type="text" value="5"></td>
+          <td><input type="text" value=""></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- 5º Container: Profissionais na Escola - Ano Vigente -->
-    <div class="data-container">
-      <h3>Profissionais na Escola - Ano Vigente</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Pedagogos</th>
-            <th>Professores Previstos</th>
-            <th>Professores em Exercício</th>
-            <th>Data de Preenchimento</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" value="4"></td>
-            <td><input type="text" value="20"></td>
-            <td><input type="text" value="18"></td>
-            <td><input type="date"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- Profissionais na Escola - Ano Vigente -->
+    <h3>Profissionais na Escola - Ano Vigente</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pedagogos</th>
+          <th>Professores Previstos</th>
+          <th>Professores em Exercício</th>
+          <th>Data de Preenchimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" value="4"></td>
+          <td><input type="text" value="20"></td>
+          <td><input type="text" value="18"></td>
+          <td><input type="date"></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- 6º Container: Turmas na Escola - Ano Vigente -->
-    <div class="data-container">
-      <h3>Turmas na Escola - Ano Vigente</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Identificação</th>
-            <th>Nº Alunos</th>
-            <th>Alunos AEE (Laudo)</th>
-            <th>Alunos AEE (Sem Laudo)</th>
-            <th>Lista de Alunos</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1A</td>
-            <td><input type="text" value="30"></td>
-            <td><input type="text" value="2"></td>
-            <td><input type="text" value="1"></td>
-            <td>
-              <button>➕</button>
-              <button>✏️</button>
-              <button>🗑️</button>
-            </td>
-          </tr>
-          <tr>
-            <td>1B</td>
-            <td><input type="text" value="28"></td>
-            <td><input type="text" value="1"></td>
-            <td><input type="text" value="2"></td>
-            <td>
-              <button>➕</button>
-              <button>✏️</button>
-              <button>🗑️</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2A</td>
-            <td><input type="text" value="25"></td>
-            <td><input type="text" value="3"></td>
-            <td><input type="text" value="2"></td>
-            <td>
-              <button>➕</button>
-              <button>✏️</button>
-              <button>🗑️</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3A</td>
-            <td><input type="text" value="27"></td>
-            <td><input type="text" value="2"></td>
-            <td><input type="text" value="3"></td>
-            <td>
-              <button>➕</button>
-              <button>✏️</button>
-              <button>🗑️</button>
-            </td>
-          </tr>
-          <tr>
-            <td>3B</td>
-            <td><input type="text" value="29"></td>
-            <td><input type="text" value="1"></td>
-            <td><input type="text" value="1"></td>
-            <td>
-              <button>➕</button>
-              <button>✏️</button>
-              <button>🗑️</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <!-- Turmas na Escola - Ano Vigente -->
+    <h3>Turmas na Escola - Ano Vigente</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Identificação</th>
+          <th>Nº Alunos</th>
+          <th>Alunos AEE (Laudo)</th>
+          <th>Alunos AEE (Sem Laudo)</th>
+          <th>Lista de Alunos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1A</td>
+          <td><input type="text" value="30"></td>
+          <td><input type="text" value="2"></td>
+          <td><input type="text" value="1"></td>
+          <td>
+            <button>➕</button>
+            <button>✏️</button>
+            <button>🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>1B</td>
+          <td><input type="text" value="28"></td>
+          <td><input type="text" value="1"></td>
+          <td><input type="text" value="2"></td>
+          <td>
+            <button>➕</button>
+            <button>✏️</button>
+            <button>🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2A</td>
+          <td><input type="text" value="25"></td>
+          <td><input type="text" value="3"></td>
+          <td><input type="text" value="2"></td>
+          <td>
+            <button>➕</button>
+            <button>✏️</button>
+            <button>🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3A</td>
+          <td><input type="text" value="27"></td>
+          <td><input type="text" value="2"></td>
+          <td><input type="text" value="3"></td>
+          <td>
+            <button>➕</button>
+            <button>✏️</button>
+            <button>🗑️</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3B</td>
+          <td><input type="text" value="29"></td>
+          <td><input type="text" value="1"></td>
+          <td><input type="text" value="1"></td>
+          <td>
+            <button>➕</button>
+            <button>✏️</button>
+            <button>🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- 7º Container: Dados Racializados -->
-    <div class="data-container">
-      <h3>Dados Racializados</h3>
-      <p>Exemplo: Distribuição de alunos por raça/cor, comparativo de taxas de aprovação, etc.</p>
-    </div>
+    <!-- Dados Racializados -->
+    <h3>Dados Racializados</h3>
+    <p>Exemplo: Distribuição de alunos por raça/cor, comparativo de taxas de aprovação, etc.</p>
 
-    <!-- 8º Container: Log de Preenchimentos -->
-    <div class="data-container">
-      <h3>Log de Preenchimentos</h3>
-      <ul id="logPreenchimentos">
-        <li>Usuário X atualizou dados do IDEB em 20/03/2024</li>
-        <li>Usuário Y adicionou turma 2A em 19/03/2024</li>
-        <li>Usuário Z alterou fluxo de aprovação em 18/03/2024</li>
-      </ul>
-    </div>
-  </div><!-- fim .content -->
+    <!-- Log de Preenchimentos -->
+    <h3>Log de Preenchimentos</h3>
+    <ul>
+      <li>Usuário X atualizou dados do IDEB em 20/03/2024</li>
+      <li>Usuário Y adicionou turma 2A em 19/03/2024</li>
+      <li>Usuário Z alterou fluxo de aprovação em 18/03/2024</li>
+    </ul>
+  </div>
 
-  <!-- Função simples para exibir o ano selecionado -->
   <script>
+    // Apenas para demonstrar
     function atualizarAno() {
       let anoSelecionado = document.getElementById("anoSelecionado").value;
       alert("Ano selecionado: " + anoSelecionado);
     }
   </script>
-
-  <!-- Chama o script que injeta o menu lateral -->
+  <!-- Não altere o script.js -->
   <script src="../script.js"></script>
 </body>
 </html>
