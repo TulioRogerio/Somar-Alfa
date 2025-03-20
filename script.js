@@ -32,6 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
         </li>
 
         <li>
+            <a href="#" class="menu-item">Indicadores de Execução<span class="arrow">▼</span></a>
+            <ul class="submenu">
+                 <li><a href="${basePath}/indicadores-execucao/frequencia.html">Frequência</a></li>
+                 <li><a href="${basePath}/indicadores-execucao/proficiencia.html">Proficiência</a></li>                 
+            </ul>
+        </li>
+        
+        <li>
             <a href="#" class="menu-item">Visitas Técnicas <span class="arrow">▼</span></a>
             <ul class="submenu">
                  <li><a href="${basePath}/visitas-tecnicas/agendamento.html">Agendamento de V.T.</a></li>
@@ -52,11 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </li>
 
         <li>
-            <a href="#" class="menu-item">Painel de Controle e BI <span class="arrow">▼</span></a>
+            <a href="#" class="menu-item">Painéis e BI <span class="arrow">▼</span></a>
             <ul class="submenu">
                  <li><a href="${basePath}/painel-controle/dashboards.html">Dashboards</a></li>
                  <li><a href="${basePath}/painel-controle/indicadores-estruturantes.html">Indicadores Estruturantes</a></li>
-                 <li><a href="${basePath}/painel-controle/indicadores-execucao.html">Indicadores de Execução</a></li>
                  <li><a href="${basePath}/painel-controle/resultados-avaliacoes.html">Resultados: Avaliações Externas</a></li>
                  <li><a href="${basePath}/painel-controle/exportar-dados.html">Exportar dados</a></li>
                  <li><a href="${basePath}/painel-controle/afa.html">AFA</a></li>
