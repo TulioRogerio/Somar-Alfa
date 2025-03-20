@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <li>
             <a href="#" class="menu-item">Visitas Técnicas <span class="arrow">▼</span></a>
             <ul class="submenu">
-                 <li><a href="${basePath}visitas-tecnicas/agendamento.html">Agendamento de V.T.</a></li>
+                 <li><a href="${basePath}visitas-tecnicas/calendario.html">Calendário</a></li>
                  <li><a href="${basePath}visitas-tecnicas/atas.html">Upload de Atas</a></li>
                  <li><a href="${basePath}visitas-tecnicas/exportar-atas.html">Visualização de Atas</a></li>
                  <li><a href="${basePath}visitas-tecnicas/modelos-atas.html">Modelos de Atas</a></li>
