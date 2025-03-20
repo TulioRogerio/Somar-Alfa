@@ -1,113 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagnóstico Escolar</title>
-  
-  <!-- Paleta de cores e estilo geral (pode mover para seu arquivo .css) 
-  <style>
-    :root {
-      --rich-black: #01161E;
-      --midnight-green: #124559;
-      --air-force-blue: #598392;
-      --ash-gray: #AEC3B0;
-      --beige: #EFF6E0;
-    }
-    * {
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-      font-family: Arial, sans-serif;
-    }
-    body {
-      background-color: var(--beige);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      margin: 0;
-    }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      background-color: var(--ash-gray);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-      margin-top: 20px; 
-      margin-bottom: 20px;
-      /* Cada container interno ficará empilhado, então height:auto para expandir conforme o conteúdo */
-    }
-    h2 {
-      color: var(--rich-black);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .data-container {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    }
-    .data-container h3 {
-      color: var(--rich-black);
-      margin-bottom: 15px;
-    }
-    select, input[type="date"], input[type="text"] {
-      padding: 8px;
-      font-size: 14px;
-      border: 1px solid var(--air-force-blue);
-      border-radius: 5px;
-      margin-bottom: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      padding: 12px;
-      border: 1px solid var(--air-force-blue);
-      text-align: left;
-      font-size: 14px;
-    }
-    th {
-      background-color: var(--midnight-green);
-      color: #fff;
-    }
-    /* Botões simples (você pode ajustar no seu .css) */
-    button {
-      background-color: var(--midnight-green);
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      font-size: 14px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background-color: var(--rich-black);
-    }
-    ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-  </style>
--->
-
+  <!-- Importa o seu CSS principal (styles.css), que já contém .sidebar, .content etc. -->
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <!-- Menu lateral injetado por script.js -->
+  <!-- O script.js injetará o menu dentro deste container -->
   <div id="menu-container"></div>
-  
-  <div class="container">
+
+  <!-- Conteúdo principal, respeitando a classe .content do styles.css -->
+  <div class="content">
     <h2>Diagnóstico Escolar</h2>
 
-    <!-- 1º Container: Selecionar o ano -->
+    <!-- 1º Container: Selecionar o Ano -->
     <div class="data-container">
       <h3>Selecione o Ano</h3>
       <label for="anoSelecionado"><strong>Ano:</strong></label>
@@ -313,7 +221,6 @@
     <!-- 7º Container: Dados Racializados -->
     <div class="data-container">
       <h3>Dados Racializados</h3>
-      <!-- Você pode incluir aqui as informações desejadas -->
       <p>Exemplo: Distribuição de alunos por raça/cor, comparativo de taxas de aprovação, etc.</p>
     </div>
 
@@ -326,15 +233,17 @@
         <li>Usuário Z alterou fluxo de aprovação em 18/03/2024</li>
       </ul>
     </div>
-  </div>
+  </div><!-- fim .content -->
 
-  <!-- Script JS que injeta o menu e gerencia submenus -->
+  <!-- Função simples para exibir o ano selecionado -->
   <script>
     function atualizarAno() {
       let anoSelecionado = document.getElementById("anoSelecionado").value;
       alert("Ano selecionado: " + anoSelecionado);
     }
   </script>
+
+  <!-- Chama o script que injeta o menu lateral -->
   <script src="../script.js"></script>
 </body>
 </html>
