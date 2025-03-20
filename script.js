@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </li>
 
         <li>
-          <a href="#" class="menu-item">Plano de Ação e Monitoramento <span class="arrow">▼</span></a>
+          <a href="#" class="menu-item">Plano de Ação<span class="arrow">▼</span></a>
           <ul class="submenu">
             <li><a href="${basePath}plano-acao/diagnostico.html">Diagnóstico</a></li>
             <li><a href="${basePath}plano-acao/problemas-desafios.html">Problemas e Desafios</a></li>
