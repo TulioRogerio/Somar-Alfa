@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="#" class="menu-item">Painéis e BI <span class="arrow">▼</span></a>
             <ul class="submenu">
                  <li><a href="${basePath}painel-controle/dashboards.html">Dashboards</a></li>
-                 <li><a href="${basePath}painel-controle/indicadores-estruturantes.html">Indicadores Estruturantes</a></li>
                  <li><a href="${basePath}painel-controle/resultados-avaliacoes.html">Resultados: Avaliações Externas</a></li>
                  <li><a href="${basePath}painel-controle/afa.html">AFA</a></li>
                  <li><a href="${basePath}painel-controle/v_fluencia-leitora.html">Verificação de Fluência Leitora</a></li>
