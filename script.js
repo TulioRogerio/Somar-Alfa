@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="sidebar">
     <h2>Somar Alfa 2</h2>
     <ul class="menu">
-<li>
+
      <li>
          <a href="${basePath}index.html" class="menu-item">Início</a>
      </li>                        
