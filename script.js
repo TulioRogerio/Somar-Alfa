@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  <li><a href="${basePath}plano-acao/mapa-acao.html">Mapa de Ação</a></li>
                  <li><a href="${basePath}plano-acao/teste-consistencia.html">Teste de Consistência</a></li>
                  <li><a href="${basePath}plano-acao/produtos.html">Produtos</a></li>
-                 <li><a href="${basePath}plano-acao/dashboard-progresso.html">Dashboard de Progresso</a></li>
+                 <li><a href="${basePath}plano-acao/status.html">Status</a></li>
             </ul>
         </li>
 
