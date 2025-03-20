@@ -1,30 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Diagnóstico Escolar</title>
-  <!-- Continua chamando seu arquivo styles.css (sem alterar) -->
+  <meta charset="UTF-8">
+  <title>Diagnóstico Escolar - Somar Alfa</title>
+
+  <!-- Estilos inline idênticos à página de "Ativação e Inativação" -->
+  <style>
+    /* Paleta de Cores */
+    :root {
+      --rich-black: #01161E;
+      --midnight-green: #124559;
+      --air-force-blue: #598392;
+      --ash-gray: #AEC3B0;
+      --beige: #EFF6E0;
+    }
+
+    /* Reset geral */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--beige);
+      display: flex;
+      justify-content: center; /* Centraliza horizontalmente */
+      align-items: flex-start; /* Alinha o topo corretamente */
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      background-color: var(--ash-gray);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      height: auto;
+    }
+
+    h2 {
+      color: var(--rich-black);
+      margin-bottom: 15px;
+    }
+    h3 {
+      color: var(--rich-black);
+      text-align: left; 
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 15px; /* Para dar um espacinho entre as tabelas */
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid var(--air-force-blue);
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--midnight-green);
+      color: white;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      padding: 8px;
+      border: 1px solid var(--air-force-blue);
+      border-radius: 5px;
+      font-size: 14px;
+      width: 90%; /* Ajuste conforme necessário */
+    }
+
+    button {
+      background-color: var(--midnight-green);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: var(--rich-black);
+    }
+
+    ul {
+      list-style: disc;
+      text-align: left;
+      margin-left: 40px;
+      margin-top: 10px;
+    }
+  </style>
+
+  <!-- Carrega também seu styles.css para garantir consistência geral (opcional) -->
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <!-- Onde o script.js injeta o menu -->
+  <!-- Menu lateral carregado pelo script.js -->
   <div id="menu-container"></div>
 
-  <!-- Único contêiner principal, igual ao que você faz na página de Ativação/Inativação -->
   <div class="container">
     <h2>Diagnóstico Escolar</h2>
 
-    <!-- Selecionar o Ano -->
-    <label for="anoSelecionado"><strong>Ano:</strong></label>
-    <select id="anoSelecionado" onchange="atualizarAno()">
-      <option value="2019">2019</option>
-      <option value="2021">2021</option>
-      <option value="2023">2023</option>
-      <option value="2024" selected>2024</option>
-      <option value="2025">2025</option>
-    </select>
+    <!-- 1) Tabela do Ano -->
+    <h3>Ano</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Selecione o Ano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <select id="anoSelecionado" onchange="atualizarAno()">
+              <option value="2019">2019</option>
+              <option value="2021">2021</option>
+              <option value="2023">2023</option>
+              <option value="2024" selected>2024</option>
+              <option value="2025">2025</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- Dados INEP -->
+    <!-- 2) Dados INEP -->
     <h3>Dados INEP</h3>
     <table>
       <thead>
@@ -61,7 +180,7 @@
       </tbody>
     </table>
 
-    <!-- Dados PAEBES -->
+    <!-- 3) Dados PAEBES -->
     <h3>Dados PAEBES</h3>
     <table>
       <thead>
@@ -91,7 +210,7 @@
       </tbody>
     </table>
 
-    <!-- Dados da Escola - 2024 -->
+    <!-- 4) Dados da Escola - 2024 -->
     <h3>Dados da Escola - 2024</h3>
     <table>
       <thead>
@@ -112,7 +231,7 @@
       </tbody>
     </table>
 
-    <!-- Profissionais na Escola - Ano Vigente -->
+    <!-- 5) Profissionais na Escola - Ano Vigente -->
     <h3>Profissionais na Escola - Ano Vigente</h3>
     <table>
       <thead>
@@ -133,7 +252,7 @@
       </tbody>
     </table>
 
-    <!-- Turmas na Escola - Ano Vigente -->
+    <!-- 6) Turmas na Escola - Ano Vigente -->
     <h3>Turmas na Escola - Ano Vigente</h3>
     <table>
       <thead>
@@ -204,27 +323,63 @@
       </tbody>
     </table>
 
-    <!-- Dados Racializados -->
+    <!-- 7) Dados Racializados (agora em tabela) -->
     <h3>Dados Racializados</h3>
-    <p>Exemplo: Distribuição de alunos por raça/cor, comparativo de taxas de aprovação, etc.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Indicador</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Proporção de alunos(as) negros(as)</td>
+          <td><input type="text" value="45%"></td>
+        </tr>
+        <tr>
+          <td>Taxa de abandono alunos(as) negros(as)</td>
+          <td><input type="text" value="5%"></td>
+        </tr>
+        <tr>
+          <td>Taxa de aprovação alunos(as) negros(as)</td>
+          <td><input type="text" value="92%"></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- Log de Preenchimentos -->
+    <!-- 8) Log de Preenchimentos (também em tabela) -->
     <h3>Log de Preenchimentos</h3>
-    <ul>
-      <li>Usuário X atualizou dados do IDEB em 20/03/2024</li>
-      <li>Usuário Y adicionou turma 2A em 19/03/2024</li>
-      <li>Usuário Z alterou fluxo de aprovação em 18/03/2024</li>
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Data/Hora</th>
+          <th>Ação Realizada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20/03/2024</td>
+          <td>Usuário X atualizou dados do IDEB</td>
+        </tr>
+        <tr>
+          <td>19/03/2024</td>
+          <td>Usuário Y adicionou turma 2A</td>
+        </tr>
+        <tr>
+          <td>18/03/2024</td>
+          <td>Usuário Z alterou fluxo de aprovação</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <script>
-    // Apenas para demonstrar
     function atualizarAno() {
-      let anoSelecionado = document.getElementById("anoSelecionado").value;
-      alert("Ano selecionado: " + anoSelecionado);
+      let ano = document.getElementById("anoSelecionado").value;
+      alert("Ano selecionado: " + ano);
     }
   </script>
-  <!-- Não altere o script.js -->
   <script src="../script.js"></script>
 </body>
 </html>
