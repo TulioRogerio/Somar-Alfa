@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="#" class="menu-item">Gestão de Usuários <span class="arrow">▼</span></a>
           <ul class="submenu">
             <li><a href="${basePath}gestao-usuarios/cadastro.html">Cadastro</a></li>
-            <li><a href="${basePath}gestao-usuarios/ativacao-inativacao.html">Ativação e Inativação</a></li>
+            <li><a href="${basePath}gestao-usuarios/ativacao-inativacao.html">Login, Ativação e Inativação</a></li>
             <li><a href="${basePath}gestao-usuarios/movimentacao.html">Movimentação</a></li>
             <li><a href="${basePath}gestao-usuarios/funcoes.html">Funções</a></li>
             <li><a href="${basePath}gestao-usuarios/log-atividades.html">Log de atividades</a></li>
