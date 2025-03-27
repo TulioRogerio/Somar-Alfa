@@ -5,328 +5,357 @@
   <title>Funções e Hierarquia - Somar Alfa</title>
 
   <style>
-    /* Paleta de Cores */
-    :root {
-      --rich-black: #01161E;
-      --midnight-green: #124559;
-      --air-force-blue: #598392;
-      --ash-gray: #AEC3B0;
-      --beige: #EFF6E0;
+    
+    /* [Manter estilos existentes] */
+    /* Adicionar novos estilos específicos para esta página */
+    .action-buttons {
+      margin-bottom: 20px;
     }
-
-    /* Reset geral */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: var(--beige);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Menu lateral fixo (injetado pelo script.js) */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 250px;
-      height: 100vh;
+    
+    .action-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
       background-color: var(--midnight-green);
       color: white;
-      padding-top: 20px;
-      overflow-y: auto;
-    }
-
-    .container {
-      margin-left: 260px; 
-      padding: 20px;
-      background-color: var(--ash-gray);
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      width: calc(100% - 280px);
-      height: auto;
-      margin-top: 20px;
-    }
-
-    h2 {
-      color: var(--rich-black);
-      margin-bottom: 15px;
-    }
-
-    /* Tabela */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-    th, td {
-      padding: 12px;
-      border: 1px solid var(--air-force-blue);
-      text-align: center;
-      white-space: normal;
-      word-wrap: break-word;
-    }
-    th {
-      background-color: var(--midnight-green);
-      color: white;
-      font-size: 14px;
-      padding: 10px;
-      min-width: 90px;
-    }
-
-    /* Ajuste dos botões na coluna final */
-    td button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 90px;
-      padding: 8px;
-      font-size: 14px;
-      width: 100%;
-      background-color: var(--midnight-green);
-      color: #fff;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
-    }
-    td button:hover {
-      background-color: var(--rich-black);
     }
 
-    td input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
+    .funcao-box {
+      background: white;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .funcao-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .funcao-header h3 {
+      margin-right: 20px;
+      color: var(--rich-black);
+    }
+
+    .funcao-header span {
+      margin-right: auto;
+      color: var(--air-force-blue);
+    }
+
+    .permissoes-lista ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .permissoes-lista li {
+      margin-bottom: 8px;
+      position: relative;
+      break-inside: avoid;
+    }
+
+    .permissoes-lista li:before {
+      content: "•";
+      color: var(--midnight-green);
+      position: absolute;
+      left: -15px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
     }
   </style>
 
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <!-- Menu lateral injetado via script.js -->
   <div id="menu-container"></div>
+<div class="container">
+      <h2>Funções e Hierarquia</h2>
 
-  <div class="container">
-    <h2>Funções e Hierarquia</h2>
+    <!-- 1º Box: Botões de Ação -->
+    <div class="action-buttons">
+      <button onclick="handleAcao('incluir')">➕ Incluir Nova Função</button>
+      <button onclick="handleAcao('editar')">✏️ Editar Selecionado</button>
+      <button onclick="handleAcao('excluir')">🗑️ Excluir Função</button>
+    </div>
 
-    <!-- Tabela de Funções e Permissões -->
-    <table>
-      <thead>
-        <tr>
-          <th>Função</th>
-          <th>Tipo de Permissão</th>
-          <th>Visualização Total</th>
-          <th>Edição Total</th>
-          <th>Visualização Regional</th>
-          <th>Edição Regional</th>
-          <th>Visualização Municipal</th>
-          <th>Edição Municipal</th>
-          <th>Visualização Escola</th>
-          <th>Edição Escola</th>
-          <th>Salvar Alterações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- ESCOLA -->
-        <tr>
-          <td>Professor</td>
-          <td>Escola</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Pedagogo</td>
-          <td>Escola</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Diretor</td>
-          <td>Escola</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
+    <!-- 2º Box: Lista de Funções -->
+    <div class="funcao-lista">
 
-        <!-- MUNICÍPIO -->
-        <tr>
-          <td>TCGP</td>
-          <td>Município</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Coordenador Municipal do PAES</td>
-          <td>Município</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Articulador Renalfa</td>
-          <td>Município</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Técnicos Secretaria Municipal</td>
-          <td>Município</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Secretário Municipal</td>
-          <td>Município</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
+      <!-- GERCO -->
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Gerco</h3>
+          <span>Tipo de Permissão: GERCO</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões específicas da gestão central (GERCO)</li>
+          </ul>
+        </div>
+      </div>
 
-        <!-- REGIONAL -->
-        <tr>
-          <td>Assessor</td>
-          <td>Regional</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Técnico do PAES (Regional)</td>
-          <td>Regional</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Técnico do RdC</td>
-          <td>Regional</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-        <tr>
-          <td>Superintendente</td>
-          <td>Regional</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
+      <!-- REGIONAL -->
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Assessor</h3>
+          <span>Tipo de Permissão: Regional</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível regional</li>
+          </ul>
+        </div>
+      </div>
 
-        <!-- GERCO -->
-        <tr>
-          <td>Gerco</td>
-          <td>Gerco</td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><input type="checkbox" checked></td>
-          <td><button onclick="savePermissions(this)">💾 Salvar</button></td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Técnico do PAES</h3>
+          <span>Tipo de Permissão: Regional</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível regional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Técnico do RdC</h3>
+          <span>Tipo de Permissão: Regional</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível regional</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Superintendente</h3>
+          <span>Tipo de Permissão: Regional</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível regional</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MUNICÍPIO -->
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>TCGP</h3>
+          <span>Tipo de Permissão: Município</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível municipal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Coordenador Municipal do PAES</h3>
+          <span>Tipo de Permissão: Município</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível municipal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Articulador Renalfa</h3>
+          <span>Tipo de Permissão: Município</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível municipal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Técnicos da Secretaria Municipal</h3>
+          <span>Tipo de Permissão: Município</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível municipal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Secretário Municipal</h3>
+          <span>Tipo de Permissão: Município</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Permissões atribuídas a nível municipal</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ESCOLA -->
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Professor</h3>
+          <span>Tipo de Permissão: Escola</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Visualização das informações a nível escola</li>
+            <li>Edição das informações a nível escola</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Pedagogo</h3>
+          <span>Tipo de Permissão: Escola</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Visualização das informações a nível escola</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="funcao-box">
+        <div class="funcao-header">
+          <h3>Diretor</h3>
+          <span>Tipo de Permissão: Escola</span>
+          <button class="btn-definir" onclick="abrirModal()">Definir Permissões</button>
+        </div>
+        <div class="permissoes-lista">
+          <ul>
+            <li>Gestão de usuários a nível escola (inclusão, edição, exclusão)</li>
+            <li>Gestão do plano de ação a nível escola (inclusão, edição, exclusão)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
   </div>
 
+  <!-- Modal de Permissões -->
+<div id="permissaoModal" class="modal">
+  <div class="modal-content">
+    <h3>Selecionar Permissões para <span id="modalTituloFuncao">Função</span></h3>
+    <div class="permissions-list">
+      <ul style="padding-left: 0; list-style: none;">
+        <li><label><input type="checkbox"> Visualização das informações a nível estadual</label></li>
+        <li><label><input type="checkbox"> Edição das informações a nível estadual</label></li>
+        <li><label><input type="checkbox"> Visualização das informações a nível regional</label></li>
+        <li><label><input type="checkbox"> Edição das informações a nível regional</label></li>
+        <li><label><input type="checkbox"> Visualização das informações a nível municipal</label></li>
+        <li><label><input type="checkbox"> Edição das informações a nível municipal</label></li>
+        <li><label><input type="checkbox"> Visualização das informações a nível escola</label></li>
+        <li><label><input type="checkbox"> Edição das informações a nível escola</label></li>
+        <li><label><input type="checkbox"> Gestão de usuários a nível estadual (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão de usuários a nível regional (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão de usuários a nível municipal (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão de usuários a nível escola (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão do plano de ação a nível estadual (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão do plano de ação a nível regional (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão do plano de ação a nível municipal (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão do plano de ação a nível escola (inclusão, edição, exclusão)</label></li>
+        <li><label><input type="checkbox"> Gestão dos indicadores de execução a nível estadual</label></li>
+        <li><label><input type="checkbox"> Gestão dos indicadores de execução a nível regional</label></li>
+        <li><label><input type="checkbox"> Gestão dos indicadores de execução a nível municipal</label></li>
+        <li><label><input type="checkbox"> Gestão dos indicadores de execução a nível escola</label></li>
+        <li><label><input type="checkbox"> Gestão das atas de visitas técnicas a nível estadual</label></li>
+        <li><label><input type="checkbox"> Gestão das atas de visitas técnicas a nível regional</label></li>
+        <li><label><input type="checkbox"> Gestão das atas de visitas técnicas a nível municipal</label></li>
+        <li><label><input type="checkbox"> Gestão das atas de visitas técnicas a nível escola</label></li>
+        <li><label><input type="checkbox"> Gestão de comunicação a nível estadual</label></li>
+        <li><label><input type="checkbox"> Gestão de comunicação a nível regional</label></li>
+        <li><label><input type="checkbox"> Gestão de comunicação a nível municipal</label></li>
+        <li><label><input type="checkbox"> Gestão de comunicação a nível escola</label></li>
+        <li><label><input type="checkbox"> Gestão dos painéis e BI a nível estadual</label></li>
+        <li><label><input type="checkbox"> Gestão dos painéis e BI a nível regional</label></li>
+        <li><label><input type="checkbox"> Gestão dos painéis e BI a nível municipal</label></li>
+        <li><label><input type="checkbox"> Gestão dos painéis e BI a nível escola</label></li>
+        <li><label><input type="checkbox"> Gestão da SAAR a nível estadual</label></li>
+        <li><label><input type="checkbox"> Gestão da SAAR a nível regional</label></li>
+        <li><label><input type="checkbox"> Gestão da SAAR a nível municipal</label></li>
+        <li><label><input type="checkbox"> Gestão da SAAR a nível escola</label></li>
+        <li><label><input type="checkbox"> Gestão de acompanhamento de processos a nível estadual</label></li>
+        <li><label><input type="checkbox"> Gestão de acompanhamento de processos a nível regional</label></li>
+        <li><label><input type="checkbox"> Gestão de acompanhamento de processos a nível municipal</label></li>
+        <li><label><input type="checkbox"> Gestão de acompanhamento de processos a nível escola</label></li>
+      </ul>
+    </div>
+    <div style="text-align: right; margin-top: 15px;">
+      <button onclick="salvarPermissoes()">Salvar</button>
+      <button onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
   <script>
-    function savePermissions(button) {
-      let row = button.parentElement.parentElement;
-      let funcao = row.cells[0].innerText;
-      alert(`Permissões para "${funcao}" foram salvas com sucesso!`);
+    function abrirModal() {
+      document.getElementById('permissaoModal').style.display = 'flex';
     }
+    function fecharModal() {
+      document.getElementById('permissaoModal').style.display = 'none';
+    }
+    function salvarPermissoes() {
+      fecharModal();
+      alert('Permissões atualizadas com sucesso!');
+    }
+    function handleAcao(tipo) {
+      alert(`Ação de ${tipo.toUpperCase()} solicitada!`);
+    }
+    
   </script>
-  <!-- Script que injeta o menu lateral (não altere) -->
   <script src="../script.js"></script>
 </body>
+
 </html>
