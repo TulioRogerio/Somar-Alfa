@@ -1,3 +1,51 @@
+    /* MELHORIA NOS BOTÕES DE AÇÃO */
+    .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+        padding: 15px;
+        background: var(--ash-gray);
+        border-radius: 8px;
+    }
+
+    .action-buttons button {
+        flex: 1;
+        padding: 12px 0;
+        background-color: var(--midnight-green) !important;
+        color: var(--beige) !important;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        border: 2px solid var(--rich-black);
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .action-buttons button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        background-color: var(--rich-black) !important;
+    }
+
+    .btn-definir {
+        background: var(--air-force-blue) !important;
+        padding: 8px 15px !important;
+        border-radius: 20px !important;
+    }
+
+    .container {
+        margin-left: 275px;
+        width: calc(100% - 275px);
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            margin-left: 230px;
+            width: calc(100% - 230px);
+        }
+    }
+
 /* Fonte sem precisar importar */
 body {
     font-family: Arial, sans-serif;
