@@ -151,7 +151,6 @@
       <tbody>
         <tr>
           <th>Categoria
-            <button onclick="inserirCategoria()">+ Inserir Categoria</button>
           </th>
           <td>
             <select>
@@ -161,10 +160,13 @@
               <option>Gestão de pessoas</option>
             </select>
           </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
         </tr>
         <tr>
           <th>Componentes do Idebes
-            <button onclick="inserirCategoria()">+ Inserir</button>
           </th>
           <td>
             <select>
@@ -175,10 +177,14 @@
               <option>Taxa de aprovação no 5º ano</option>
             </select>
           </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
         </tr>
         <tr>
           <th>Componentes do Idebes-Alfa
-            <button onclick="inserirCategoria()">+ Inserir</button>
           </th>
           <td>
             <select>
@@ -188,6 +194,12 @@
               <option>Fator de Equidade Educacional</option>
             </select>
           </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
+
         </tr>
         <tr>
           <th>Data de Início da Ação</th>
@@ -200,8 +212,8 @@
           </td>
         </tr>
         <tr>
-          <th>Causa Relacionada</th>
-          <td><textarea placeholder="Descreva a causa relacionada...">Planejamento das atividades do componente curricular.</textarea></td>
+          <th>Problema Relacionado</th>
+          <td><textarea placeholder="Descreva o problema relacionado...">Planejamento das atividades do componente curricular.</textarea></td>
         </tr>
         <tr>
           <th>Nome da ação</th>
@@ -224,12 +236,12 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
 
     <!-- Tabela de Tarefas -->
     <table>
-      <thead>
         <tr>
           <th>TAREFAS</th>
           <th>Responsável</th>
           <th>Data de Início</th>
           <th>Data de Término</th>
+          <th>Edição</th>
         </tr>
       </thead>
       <tbody>
@@ -238,29 +250,43 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
           <td>Professoras Regentes e Equipe Gestora</td>
           <td>2024-02-09</td>
           <td>2024-03-29</td>
-        </tr>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
         <tr>
           <td>Analisar os dados da avaliação diagnóstica.</td>
           <td>Professoras Regentes e Equipe Gestora</td>
           <td>2024-02-09</td>
           <td>2024-03-29</td>
-        </tr>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
         <tr>
           <td>Atividades diversificadas para habilidades não alcançadas.</td>
           <td>Pedagoga e professor</td>
           <td>2024-04-12</td>
           <td>2024-06-28</td>
-        </tr>
+           <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
         <!-- etc... -->
 
 
-<!-- Mapa de Ação 2 -->
-    <h3>MAPA DE AÇÃO 2</h3>
+    <!-- Mapa de Ação 2 -->
     <table>
       <tbody>
+      <h3>MAPA DE AÇÃO 2</h3>        
         <tr>
           <th>Categoria
-            <button onclick="inserirCategoria()">+ Inserir Categoria</button>
           </th>
           <td>
             <select>
@@ -270,10 +296,13 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
               <option>Gestão de pessoas</option>
             </select>
           </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
         </tr>
         <tr>
           <th>Componentes do Idebes
-            <button onclick="inserirCategoria()">+ Inserir</button>
           </th>
           <td>
             <select>
@@ -284,10 +313,14 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
               <option>Taxa de aprovação no 5º ano</option>
             </select>
           </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
         </tr>
         <tr>
           <th>Componentes do Idebes-Alfa
-            <button onclick="inserirCategoria()">+ Inserir</button>
           </th>
           <td>
             <select>
@@ -297,6 +330,12 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
               <option>Fator de Equidade Educacional</option>
             </select>
           </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
+
         </tr>
         <tr>
           <th>Data de Início da Ação</th>
@@ -309,8 +348,8 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
           </td>
         </tr>
         <tr>
-          <th>Causa Relacionada</th>
-          <td><textarea placeholder="Descreva a causa relacionada...">Planejamento das atividades do componente curricular.</textarea></td>
+          <th>Problema Relacionado</th>
+          <td><textarea placeholder="Descreva o problema relacionado...">Planejamento das atividades do componente curricular.</textarea></td>
         </tr>
         <tr>
           <th>Nome da ação</th>
@@ -333,12 +372,12 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
 
     <!-- Tabela de Tarefas -->
     <table>
-      <thead>
         <tr>
           <th>TAREFAS</th>
           <th>Responsável</th>
           <th>Data de Início</th>
           <th>Data de Término</th>
+          <th>Edição</th>
         </tr>
       </thead>
       <tbody>
@@ -347,23 +386,172 @@ Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas
           <td>Professoras Regentes e Equipe Gestora</td>
           <td>2024-02-09</td>
           <td>2024-03-29</td>
-        </tr>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
         <tr>
           <td>Analisar os dados da avaliação diagnóstica.</td>
           <td>Professoras Regentes e Equipe Gestora</td>
           <td>2024-02-09</td>
           <td>2024-03-29</td>
-        </tr>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
         <tr>
           <td>Atividades diversificadas para habilidades não alcançadas.</td>
           <td>Pedagoga e professor</td>
           <td>2024-04-12</td>
           <td>2024-06-28</td>
-        </tr>
+           <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
         <!-- etc... -->
+
+    <!-- Mapa de Ação 3 -->
+
+    <table>
+      <tbody>
+        <h3>MAPA DE AÇÃO 3</h3>        
+        <tr>
+          <th>Categoria
+          </th>
+          <td>
+            <select>
+              <option>Pedagógico</option>
+              <option>Gestão e governança</option>
+              <option>Vulnerabilidade e aspectos socioemocionais</option>
+              <option>Gestão de pessoas</option>
+            </select>
+          </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
+        <tr>
+          <th>Componentes do Idebes
+          </th>
+          <td>
+            <select>
+              <option>Proficiência em Língua Portuguesa</option>
+              <option>Proficiência em Matemática</option>
+              <option>Taxa de aprovação no 3º ano</option>
+              <option>Taxa de aprovação no 4º ano</option>
+              <option>Taxa de aprovação no 5º ano</option>
+            </select>
+          </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
+        </tr>
+        <tr>
+          <th>Componentes do Idebes-Alfa
+          </th>
+          <td>
+            <select>
+              <option>Proficiência em Língua Portuguesa</option>
+              <option>Proficiência em Matemática</option>
+              <option>Taxa de Participação na Avaliação</option>
+              <option>Fator de Equidade Educacional</option>
+            </select>
+          </td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+        </tr>
+
+        </tr>
+        <tr>
+          <th>Data de Início da Ação</th>
+          <td><input type="date" value="2024-04-05"></td>
+        </tr>
+        <tr>
+          <th>Público-alvo</th>
+          <td>
+            <textarea placeholder="Descreva o público-alvo...">Estudantes do 2º Ano EF</textarea>
+          </td>
+        </tr>
+        <tr>
+          <th>Problema Relacionado</th>
+          <td><textarea placeholder="Descreva o problema relacionado...">Planejamento das atividades do componente curricular.</textarea></td>
+        </tr>
+        <tr>
+          <th>Nome da ação</th>
+          <td><textarea placeholder="Descreva o nome da ação...">Ação pedagógica curricular e planejamento fortalecendo o desenvolvimento em matemática...</textarea></td>
+        </tr>
+        <tr>
+          <th>Responsável</th>
+          <td><textarea placeholder="Quem é responsável?">Equipe gestora e professores</textarea></td>
+        </tr>
+        <tr>
+          <th>Descrição da Ação</th>
+          <td>
+            <textarea placeholder="Descreva a ação detalhadamente...">
+Consolidar o Plano de Ensino desenvolvendo em sala de aula habilidades relativas à prática de matemática...
+            </textarea>
+          </td>
+        </tr>
       </tbody>
     </table>
-  </div>
+
+    <!-- Tabela de Tarefas -->
+    <table>
+        <tr>
+          <th>TAREFAS</th>
+          <th>Responsável</th>
+          <th>Data de Início</th>
+          <th>Data de Término</th>
+          <th>Edição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Planejamento para definir ações pertinentes às turmas.</td>
+          <td>Professoras Regentes e Equipe Gestora</td>
+          <td>2024-02-09</td>
+          <td>2024-03-29</td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
+        <tr>
+          <td>Analisar os dados da avaliação diagnóstica.</td>
+          <td>Professoras Regentes e Equipe Gestora</td>
+          <td>2024-02-09</td>
+          <td>2024-03-29</td>
+          <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
+        <tr>
+          <td>Atividades diversificadas para habilidades não alcançadas.</td>
+          <td>Pedagoga e professor</td>
+          <td>2024-04-12</td>
+          <td>2024-06-28</td>
+           <td>
+                        <button onclick="editUser(this)">✏️</button>
+                        <button onclick="toggleStatus(this)">🔴</button>
+                        <button onclick="toggleEdit(this)">🔄</button>
+          </tr>
+          </tr>
+        <!-- etc... -->
+
 
   
   <!-- Script extra: Salvamento Automático e Inserir Categoria (exemplo) -->
